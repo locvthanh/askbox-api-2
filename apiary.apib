@@ -1,0 +1,735 @@
+FORMAT: 1A
+HOST: https://private-09905-askbox.apiary-mock.com/
+
+# Askbox API
+
+# Group Structure of a API
+
+Each API call will return the following structure of data:
+
+        {
+            "error": "", // error code
+            "error_message": "",
+            "data": {}
+        }
+
+or
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [],
+            "pagination": {
+                offset: 0,
+                limit: 10,
+                sort: asc, // or desc
+                total: 100
+            }
+        }
+        
+
+
+All the list API call, should have the following parameters:
+* query: a string used to filter the list (some API may not have this parameters)
+* offset: the starting item to be requested. Default is 0.
+* limit: number of items to be retrieving. Default is 10.
+* sort: string, should be 'asc' or 'desc'. Default is 'asc'.
+
+HTTP Code
+
+* 200 – OK – Eyerything is working
+* 201 – OK – New resource has been created
+* 204 – OK – The resource was successfully deleted
+
+* 304 – Not Modified – The client can use cached data
+
+* 400 – Bad Request – The request was invalid or cannot be served. The exact error should be explained in the error payload. E.g. „The JSON is not valid“
+* 401 – Unauthorized – The request requires an user authentication
+* 403 – Forbidden – The server understood the request, but is refusing it or the access is not allowed.
+* 404 – Not found – There is no resource behind the URI.
+* 422 – Unprocessable Entity – Should be used if the server cannot process the enitity, e.g. if an image cannot be formatted or mandatory fields are missing in the payload.
+
+* 500 – Internal Server Error – API developers should avoid this error. If an error occurs in the global catch blog, the stracktrace should be logged and not returned as response.
+
+
+
+# Group Users
+
+## Users Collection [/users?offset={offset}&limit={limit}&sort={sort}]
+
+### List Users With Query [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "id": "testuser1_id",
+                    "username": "testuser",
+                    "fullname": "Test User",
+                    "number_of_followers": 3,
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+                },
+                {
+                    "id": "testuser2_id",
+                    "username": "testuser2",
+                    "fullname": "Test User 2",
+                    "number_of_followers": 3,
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+                },
+                {
+                    "id": "testuser3_id",
+                    "username": "testuser3",
+                    "fullname": "Test User 3",
+                    "number_of_followers": 3,
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+                }
+            ]
+            
+        }
+
+## User [/users/{user_id}?offset={offset}&limit={limit}&sort={sort}]
+
+### Get User's profile [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": {
+                    "id": "testuser1_id",
+                    "username": "testuser",
+                    "fullname": "Test User",
+                    "tagline": "Make-up",
+                    "number_of_followers": 268,
+                    "number_of_following": 394,
+                    "description": "Obsesses with everything beauty, make-up",
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+            }
+        }
+
+## Get CurrentUser [/users/me]
+
+The apply_status field will have the following values:
+- new: This user is new to the process.
+- pending: This user applied to be able to receive questions.
+- approved: This user was approved by admin, to be able to receive questions.
+
+### Get Current User's Profile [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": {
+                    "id": "dkkdasdf",
+                    "username": "xiaxue",
+                    "fullname": "Xia Xue",
+                    "tagline": "Make-up",
+                    "number_of_followers": 268,
+                    "number_of_following": 394,
+                    "description": "Obsesses with everything beauty, make-up",
+                    "avatar_url": "http://placehold.it/150x150",
+                    "apply_status": "pending"
+            }
+        }
+
+### Update user's profile [POST]
+
++ Request (application/json)
+
+        {
+            "tagline": "facebook", // email, facebook, instagram
+            "fullname": "",
+            "description": "",
+            "avatar_url": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": {}
+        }
+        
+## Follow User [/follows/{user_id}/{user_to_follow}]
+
+### One user will follow another user [POST]
+
++ Request (application/json)
+
+        {
+        }
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": {}
+        }
+
+### One user will follow another user [DELETE]
+
++ Request (application/json)
+
+        {
+        }
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": {}
+        }
+        
+# Group Authentication
+
+## Signup [/auth/signup]
+
+## Login [/auth/login]
+
+### Login [POST]
+
++ Request (application/json)
+
+        {
+            "loginmode": "facebook", // email, facebook, instagram
+            "username": "",
+            "email": "",
+            "password": "",
+            "facebooktoken": "",
+            "instagramtoken": ""
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": ""
+            }
+
+# Group Feeds
+
+## Home Feeds [/questions/home?offset={offset}&limit={limit}]
+
+### /questions/home [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "answered_by": {
+                        "id": "testuser3_id",
+                        "username": "Rchlwngx",
+                        "fullname": "Rachel Wong",
+                        "tagline": "Beauty Blogger, Make-up expert.",
+                        "number_of_followers": 268,
+                        "number_of_following": 394,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/RachelWong",
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "Xx",
+                        "fullname": "Xia Xue",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 18,
+                        "number_of_following": 24,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "video": {
+                        "id": "video1",
+                        "cover_url": "http://placehold.it/350x150",
+                        "video_url": "http://www.youtube.com",
+                        "unlocked_by_user": false,
+                        "length": 54
+                    },
+                    
+                    "id": "question1",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
+                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                    
+                    
+                },
+                
+                {
+                    "answered_by": {
+                        "id": "nrlkheng",
+                        "username": "NRLKheng",
+                        "fullname": "Narelle Kheng",
+                        "tagline": "Beauty Expert, Freedom Advocate, Blogger.",
+                        "number_of_followers": 12,
+                        "number_of_following": 34,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/NarelleKheng",
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "MeltansyB",
+                        "fullname": "Melania Tan",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "video": {
+                        "id": "video2",
+                        "cover_url": "http://placehold.it/350x150",
+                        "video_url": "http://www.youtube.com",
+                        "unlocked_by_user": false,
+                        "length": 54
+                    },
+                    
+                    "id": "question2",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
+                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                }
+            ]
+        }
+
+## Latest Feeds [/questions/latest?offset={offset}&limit={limit}]
+
+### /questions/latest [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "answered_by": {
+                        "id": "testuser3_id",
+                        "username": "Rchlwngx",
+                        "fullname": "Rachel Wong",
+                        "tagline": "Beauty Blogger, Make-up expert.",
+                        "number_of_followers": 268,
+                        "number_of_following": 394,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/RachelWong",
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "Xx",
+                        "fullname": "Xia Xue",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 18,
+                        "number_of_following": 24,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "video": {
+                        "id": "video1",
+                        "cover_url": "http://placehold.it/350x150",
+                        "video_url": "http://www.youtube.com",
+                        "unlocked_by_user": false,
+                        "length": 54
+                    },
+                    
+                    "id": "question1",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    
+
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
+                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                },
+                
+                {
+                    "answered_by": {
+                        "id": "nrlkheng",
+                        "username": "NRLKheng",
+                        "fullname": "Narelle Kheng",
+                        "tagline": "Beauty Expert, Freedom Advocate, Blogger.",
+                        "number_of_followers": 12,
+                        "number_of_following": 34,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/NarelleKheng",
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "MeltansyB",
+                        "fullname": "Melania Tan",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "video": {
+                        "id": "video2",
+                        "cover_url": "http://placehold.it/350x150",
+                        "video_url": "http://www.youtube.com",
+                        "unlocked_by_user": false,
+                        "length": 54
+                    },
+                    
+                    "id": "question2",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    
+
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
+                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                }
+            ]
+        }
+
+## Featured Users Feeds [/users/featured?offset={offset}&limit={limit}&query={query}]
+
+## Newcomers Feeds [/users/newcomers?offset={offset}&limit={limit}&query={query}]
+
+## Profile Feeds - current user's questions [/questions/{user_id}?offset={offset}&limit={limit}]
+
++ Parameters
+    + user_id (string) - ID of the User in the form of a string
+
+### /questions/{user_id} [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "answered_by": {
+                        "id": "testuser3_id",
+                        "username": "Rchlwngx",
+                        "fullname": "Rachel Wong",
+                        "tagline": "Beauty Blogger, Make-up expert.",
+                        "number_of_followers": 268,
+                        "number_of_following": 394,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/RachelWong",
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "Xx",
+                        "fullname": "Xia Xue",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 18,
+                        "number_of_following": 24,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "video": {
+                        "id": "video1",
+                        "cover_url": "http://placehold.it/350x150",
+                        "video_url": "http://www.youtube.com",
+                        "unlocked_by_user": false,
+                        "length": 54
+                    },
+                    
+                    "id": "question1",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    
+
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
+                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                },
+                
+                {
+                    "answered_by": {
+                        "id": "nrlkheng",
+                        "username": "NRLKheng",
+                        "fullname": "Narelle Kheng",
+                        "tagline": "Beauty Expert, Freedom Advocate, Blogger.",
+                        "number_of_followers": 12,
+                        "number_of_following": 34,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/NarelleKheng",
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "MeltansyB",
+                        "fullname": "Melania Tan",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "video": {
+                        "id": "video2",
+                        "cover_url": "http://placehold.it/350x150",
+                        "video_url": "http://www.youtube.com",
+                        "unlocked_by_user": false,
+                        "length": 54
+                    },
+                    
+                    "id": "question2",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    
+
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
+                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                }
+            ]
+        }
+
+## Profile - Unlocked questions [/unlocked_questions/{user_id}?offset={offset}&limit={limit}]
+
++ Parameters
+    + user_id (string) - ID of the User in the form of a string
+
+### /unlocked_questions/{user_id} [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "answered_by": {
+                        "id": "testuser3_id",
+                        "username": "Rchlwngx",
+                        "fullname": "Rachel Wong",
+                        "tagline": "Beauty Blogger, Make-up expert.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "http://placehold.it/150x150"
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "Xx",
+                        "fullname": "Xia Xue",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "http://placehold.it/150x150"
+                    },
+                    
+                    "video": {
+                        "id": "xadfasf",
+                        "cover_url": "http://placehold.it/350x150",
+                        "length": 54,
+                        "video_url": "http://www.youtube.com",
+                        "unlocked_by_user": false
+                    },
+                    
+                    "id": "dkkdasdf",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    
+                    
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
+                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                }
+            ]
+        }
+        
+# Group Questions
+
+## Question Detail [/questions/{question_id}]
+
+### /questions/{question_id} [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "answered_by": {
+                        "id": "testuser3_id",
+                        "username": "Rchlwngx",
+                        "fullname": "Rachel Wong",
+                        "tagline": "Beauty Blogger, Make-up expert.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/RachelWong",
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "Xx",
+                        "fullname": "Xia Xue",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "video": {
+                        "id": "xadfasf",
+                        "cover_url": "http://placehold.it/350x150",
+                        "video_url": "http://www.youtube.com",
+                        "unlocked_by_user": false,
+                        "length": 54
+                    },
+                    
+                    "id": "dkkdasdf",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
+                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                }
+            ]
+        }
+
+## Unlock one question [/questions/{question_id}/unlock]
+
+### /questions/{question_id}/unlock [POST]
+
++ Request (application/json)
+
+        {
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": ""
+            }
+
+## Pending asking [/questions/me/pending_asking]
+
+### /questions/me/pending_asking [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "answered_by": {
+                        "id": "testuser3_id",
+                        "username": "Rchlwngx",
+                        "fullname": "Rachel Wong",
+                        "tagline": "Beauty Blogger, Make-up expert.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/RachelWong",
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "Xx",
+                        "fullname": "Xia Xue",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "id": "dkkdasdf",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    "price": 20,
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss"
+                }
+            ]
+        }
+
+
+## Pending respond [/questions/me/pending_respond]
+
+### /questions/me/pending_respond [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "answered_by": {
+                        "id": "testuser3_id",
+                        "username": "Rchlwngx",
+                        "fullname": "Rachel Wong",
+                        "tagline": "Beauty Blogger, Make-up expert.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/RachelWong",
+                    },
+                    
+                    "asked_by": {
+                        "id": "testuser2_id",
+                        "username": "Xx",
+                        "fullname": "Xia Xue",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "id": "dkkdasdf",
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    "price": 20,
+                    "question_creation_date": "MM-DD-yyyy HH:mm:ss"
+                }
+            ]
+        }
+
+# Group Media
+
+By default, the medial should be uploaded into S3 buckets using AWS SDK
+
+# Group Activities
+
+# Group Payment and Transactions
