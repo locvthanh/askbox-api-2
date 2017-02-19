@@ -196,6 +196,28 @@ The apply_status field will have the following values:
 
 ## Signup [/auth/signup]
 
+### /auth/signup [POST]
+
++ Request (application/json)
+
+        {
+            "email": "",
+            "password": "",
+            "username": "",
+            "fullname": ""
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": ""
+            }
+
+
 ## Login [/auth/login]
 
 ### Login [POST]
@@ -568,6 +590,31 @@ The apply_status field will have the following values:
         }
         
 # Group Questions
+
+## Add question [/questions/]
+
+### /questions/ [POST]
+
++ Request (application/json)
+
+        {
+            "asker_userid": "testuser_1", // email, facebook, instagram
+            "answerer_userid": "testuser_2",
+            "question": "I want to know about your past.",
+            "price": "3", 
+            "anonymously": true
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": ""
+            }
+
 
 ## Question Detail [/questions/{question_id}]
 
