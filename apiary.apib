@@ -55,6 +55,83 @@ HTTP Code
 
 # Group Users
 
+## Featured Users [/featured_users?query={query}&offset={offset}&limit={limit}&sort={sort}]
+
+### /featured_users [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "id": "testuser1_id",
+                    "username": "testuser",
+                    "fullname": "Test User",
+                    "number_of_followers": 3,
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+                },
+                {
+                    "id": "testuser2_id",
+                    "username": "testuser2",
+                    "fullname": "Test User 2",
+                    "number_of_followers": 3,
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+                },
+                {
+                    "id": "testuser3_id",
+                    "username": "testuser3",
+                    "fullname": "Test User 3",
+                    "number_of_followers": 3,
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+                }
+            ]
+            
+        }
+
+## Newcomers Users [/new_users?query={query}&offset={offset}&limit={limit}&sort={sort}]
+
+### /new_users [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "id": "testuser1_id",
+                    "username": "testuser",
+                    "fullname": "Test User",
+                    "number_of_followers": 3,
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+                },
+                {
+                    "id": "testuser2_id",
+                    "username": "testuser2",
+                    "fullname": "Test User 2",
+                    "number_of_followers": 3,
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+                },
+                {
+                    "id": "testuser3_id",
+                    "username": "testuser3",
+                    "fullname": "Test User 3",
+                    "number_of_followers": 3,
+                    "avatar_url": "http://placehold.it/150x150",
+                    "is_following": false
+                }
+            ]
+            
+        }
+
+
 ## Users Collection [/users?offset={offset}&limit={limit}&sort={sort}]
 
 ### List Users With Query [GET]
