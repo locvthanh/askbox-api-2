@@ -255,7 +255,7 @@ The apply_status field will have the following values:
             "data": {}
         }
 
-### One user will follow another user [DELETE]
+### One user will unfollow another user [DELETE]
 
 + Request (application/json)
 
@@ -509,10 +509,6 @@ The apply_status field will have the following values:
             ]
         }
 
-## Featured Users Feeds [/users/featured?offset={offset}&limit={limit}&query={query}]
-
-## Newcomers Feeds [/users/newcomers?offset={offset}&limit={limit}&query={query}]
-
 ## Profile Feeds - current user's questions [/questions/{user_id}?offset={offset}&limit={limit}]
 
 + Parameters
@@ -761,6 +757,44 @@ The apply_status field will have the following values:
                 "error": "",
                 "error_message": "",
                 "data": ""
+            }
+
+## Like one question [/questions/{question_id}/like]
+
+### /questions/{question_id}/like [POST]
+
++ Request (application/json)
+
+        {
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": "success"
+            }
+
+## Unlike one question [/questions/{question_id}/unlike]
+
+### /questions/{question_id}/unlike [POST]
+
++ Request (application/json)
+
+        {
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": "success"
             }
 
 ## Pending asking [/questions/me/pending_asking]
