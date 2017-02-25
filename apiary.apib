@@ -170,7 +170,7 @@ HTTP Code
             
         }
 
-## User [/users/{user_id}?offset={offset}&limit={limit}&sort={sort}]
+## User [/users/{user_id}]
 
 ### Get User's profile [GET]
 
@@ -199,7 +199,7 @@ The apply_status field will have the following values:
 - pending: This user applied to be able to receive questions.
 - approved: This user was approved by admin, to be able to receive questions.
 
-### Get Current User's Profile [GET]
+### /users/me [GET]
 
 + Response 200 (application/json)
 
@@ -825,34 +825,76 @@ The apply_status field will have the following values:
             "error_message": "",
             "data": [
                 {
-                    "answered_by": {
-                        "id": "testuser3_id",
-                        "username": "Rchlwngx",
-                        "fullname": "Rachel Wong",
-                        "tagline": "Beauty Blogger, Make-up expert.",
-                        "number_of_followers": 58,
-                        "number_of_following": 21,
-                        "description": "Obsesses with everything beauty, make-up",
-                        "avatar_url": "https://avatars.io/instagram/RachelWong",
-                    },
-                    
-                    "asked_by": {
-                        "id": "testuser2_id",
-                        "username": "Xx",
-                        "fullname": "Xia Xue",
-                        "tagline": "I am unique, the only unique on in the world.",
-                        "number_of_followers": 58,
-                        "number_of_following": 21,
-                        "description": "Obsesses with everything beauty, make-up",
-                        "avatar_url": "https://avatars.io/instagram/XiaXue",
-                    },
-                    
-                    "id": "dkkdasdf",
-                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
-                    "number_of_likes": 15,
-                    "liked_by_me": false,
-                    "price": 20,
-                    "question_creation_date": "MM-DD-yyyy HH:mm:ss"
+                    title: "Asked",
+                    data: [
+                        {
+                            "answered_by": {
+                                "id": "testuser3_id",
+                                "username": "Rchlwngx",
+                                "fullname": "Rachel Wong",
+                                "tagline": "Beauty Blogger, Make-up expert.",
+                                "number_of_followers": 58,
+                                "number_of_following": 21,
+                                "description": "Obsesses with everything beauty, make-up",
+                                "avatar_url": "https://avatars.io/instagram/RachelWong",
+                            },
+                            
+                            "asked_by": {
+                                "id": "testuser2_id",
+                                "username": "Xx",
+                                "fullname": "Xia Xue",
+                                "tagline": "I am unique, the only unique on in the world.",
+                                "number_of_followers": 58,
+                                "number_of_following": 21,
+                                "description": "Obsesses with everything beauty, make-up",
+                                "avatar_url": "https://avatars.io/instagram/XiaXue",
+                            },
+                            
+                            "id": "dkkdasdf",
+                            "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                            "number_of_likes": 15,
+                            "liked_by_me": false,
+                            "price": 20,
+                            "question_creation_date": "01-05-2017 05:07:03",
+                            "deadline": "04-05-2017 05:07:03"
+                        }
+                    ]
+                },
+                {
+                    title: "Asked for Free",
+                    data: [
+                        {
+                            "answered_by": {
+                                "id": "testuser3_id",
+                                "username": "Rchlwngx",
+                                "fullname": "Rachel Wong",
+                                "tagline": "Beauty Blogger, Make-up expert.",
+                                "number_of_followers": 58,
+                                "number_of_following": 21,
+                                "description": "Obsesses with everything beauty, make-up",
+                                "avatar_url": "https://avatars.io/instagram/RachelWong",
+                            },
+                            
+                            "asked_by": {
+                                "id": "testuser2_id",
+                                "username": "Xx",
+                                "fullname": "Xia Xue",
+                                "tagline": "I am unique, the only unique on in the world.",
+                                "number_of_followers": 58,
+                                "number_of_following": 21,
+                                "description": "Obsesses with everything beauty, make-up",
+                                "avatar_url": "https://avatars.io/instagram/XiaXue",
+                            },
+                            
+                            "id": "dkkdasdf",
+                            "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                            "number_of_likes": 15,
+                            "liked_by_me": false,
+                            "price": 20,
+                            "question_creation_date": "03-05-2017 05:07:03",
+                            "deadline": "02-05-2017 05:07:03s"
+                        }
+                    ]
                 }
             ]
         }
@@ -869,34 +911,76 @@ The apply_status field will have the following values:
             "error_message": "",
             "data": [
                 {
-                    "answered_by": {
-                        "id": "testuser3_id",
-                        "username": "Rchlwngx",
-                        "fullname": "Rachel Wong",
-                        "tagline": "Beauty Blogger, Make-up expert.",
-                        "number_of_followers": 58,
-                        "number_of_following": 21,
-                        "description": "Obsesses with everything beauty, make-up",
-                        "avatar_url": "https://avatars.io/instagram/RachelWong",
-                    },
-                    
-                    "asked_by": {
-                        "id": "testuser2_id",
-                        "username": "Xx",
-                        "fullname": "Xia Xue",
-                        "tagline": "I am unique, the only unique on in the world.",
-                        "number_of_followers": 58,
-                        "number_of_following": 21,
-                        "description": "Obsesses with everything beauty, make-up",
-                        "avatar_url": "https://avatars.io/instagram/XiaXue",
-                    },
-                    
-                    "id": "dkkdasdf",
-                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
-                    "number_of_likes": 15,
-                    "liked_by_me": false,
-                    "price": 20,
-                    "question_creation_date": "MM-DD-yyyy HH:mm:ss"
+                    title: "Answer",
+                    data: [
+                        {
+                            "answered_by": {
+                                "id": "testuser3_id",
+                                "username": "Rchlwngx",
+                                "fullname": "Rachel Wong",
+                                "tagline": "Beauty Blogger, Make-up expert.",
+                                "number_of_followers": 58,
+                                "number_of_following": 21,
+                                "description": "Obsesses with everything beauty, make-up",
+                                "avatar_url": "https://avatars.io/instagram/RachelWong",
+                            },
+                            
+                            "asked_by": {
+                                "id": "testuser2_id",
+                                "username": "Xx",
+                                "fullname": "Xia Xue",
+                                "tagline": "I am unique, the only unique on in the world.",
+                                "number_of_followers": 58,
+                                "number_of_following": 21,
+                                "description": "Obsesses with everything beauty, make-up",
+                                "avatar_url": "https://avatars.io/instagram/XiaXue",
+                            },
+                            
+                            "id": "dkkdasdf",
+                            "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                            "number_of_likes": 15,
+                            "liked_by_me": false,
+                            "price": 20,
+                            "question_creation_date": "01-05-2017 05:07:03",
+                            "deadline": "04-05-2017 05:07:03"
+                        }
+                    ]
+                },
+                {
+                    title: "Answer for Free",
+                    data: [
+                        {
+                            "answered_by": {
+                                "id": "testuser3_id",
+                                "username": "Rchlwngx",
+                                "fullname": "Rachel Wong",
+                                "tagline": "Beauty Blogger, Make-up expert.",
+                                "number_of_followers": 58,
+                                "number_of_following": 21,
+                                "description": "Obsesses with everything beauty, make-up",
+                                "avatar_url": "https://avatars.io/instagram/RachelWong",
+                            },
+                            
+                            "asked_by": {
+                                "id": "testuser2_id",
+                                "username": "Xx",
+                                "fullname": "Xia Xue",
+                                "tagline": "I am unique, the only unique on in the world.",
+                                "number_of_followers": 58,
+                                "number_of_following": 21,
+                                "description": "Obsesses with everything beauty, make-up",
+                                "avatar_url": "https://avatars.io/instagram/XiaXue",
+                            },
+                            
+                            "id": "dkkdasdf",
+                            "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                            "number_of_likes": 15,
+                            "liked_by_me": false,
+                            "price": 20,
+                            "question_creation_date": "03-05-2017 05:07:03",
+                            "deadline": "02-05-2017 05:07:03s"
+                        }
+                    ]
                 }
             ]
         }
