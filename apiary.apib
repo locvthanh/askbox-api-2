@@ -688,11 +688,11 @@ The apply_status field will have the following values:
 + Request (application/json)
 
         {
-            "asker_userid": "testuser_1", // email, facebook, instagram
-            "answerer_userid": "testuser_2",
+            // "asker_id": will be included in the token
+            "answerer_id": "testuser_2",
             "question": "I want to know about your past.",
             "price": "3", 
-            "anonymously": true
+            "is_anonymous": true
         }
 
 + Response 200 (application/json)
@@ -825,8 +825,8 @@ The apply_status field will have the following values:
             "error_message": "",
             "data": [
                 {
-                    title: "Asked",
-                    data: [
+                    "title": "Asked",
+                    "data": [
                         {
                             "answered_by": {
                                 "id": "testuser3_id",
@@ -836,7 +836,7 @@ The apply_status field will have the following values:
                                 "number_of_followers": 58,
                                 "number_of_following": 21,
                                 "description": "Obsesses with everything beauty, make-up",
-                                "avatar_url": "https://avatars.io/instagram/RachelWong",
+                                "avatar_url": "https://avatars.io/instagram/RachelWong"
                             },
                             
                             "asked_by": {
@@ -847,7 +847,7 @@ The apply_status field will have the following values:
                                 "number_of_followers": 58,
                                 "number_of_following": 21,
                                 "description": "Obsesses with everything beauty, make-up",
-                                "avatar_url": "https://avatars.io/instagram/XiaXue",
+                                "avatar_url": "https://avatars.io/instagram/XiaXue"
                             },
                             
                             "id": "dkkdasdf",
@@ -861,8 +861,8 @@ The apply_status field will have the following values:
                     ]
                 },
                 {
-                    title: "Asked for Free",
-                    data: [
+                    "title": "Asked for Free",
+                    "data": [
                         {
                             "answered_by": {
                                 "id": "testuser3_id",
@@ -872,7 +872,7 @@ The apply_status field will have the following values:
                                 "number_of_followers": 58,
                                 "number_of_following": 21,
                                 "description": "Obsesses with everything beauty, make-up",
-                                "avatar_url": "https://avatars.io/instagram/RachelWong",
+                                "avatar_url": "https://avatars.io/instagram/RachelWong"
                             },
                             
                             "asked_by": {
@@ -883,7 +883,7 @@ The apply_status field will have the following values:
                                 "number_of_followers": 58,
                                 "number_of_following": 21,
                                 "description": "Obsesses with everything beauty, make-up",
-                                "avatar_url": "https://avatars.io/instagram/XiaXue",
+                                "avatar_url": "https://avatars.io/instagram/XiaXue"
                             },
                             
                             "id": "dkkdasdf",
@@ -911,8 +911,8 @@ The apply_status field will have the following values:
             "error_message": "",
             "data": [
                 {
-                    title: "Answer",
-                    data: [
+                    "title": "Answer",
+                    "data": [
                         {
                             "answered_by": {
                                 "id": "testuser3_id",
@@ -922,7 +922,7 @@ The apply_status field will have the following values:
                                 "number_of_followers": 58,
                                 "number_of_following": 21,
                                 "description": "Obsesses with everything beauty, make-up",
-                                "avatar_url": "https://avatars.io/instagram/RachelWong",
+                                "avatar_url": "https://avatars.io/instagram/RachelWong"
                             },
                             
                             "asked_by": {
@@ -933,7 +933,7 @@ The apply_status field will have the following values:
                                 "number_of_followers": 58,
                                 "number_of_following": 21,
                                 "description": "Obsesses with everything beauty, make-up",
-                                "avatar_url": "https://avatars.io/instagram/XiaXue",
+                                "avatar_url": "https://avatars.io/instagram/XiaXue"
                             },
                             
                             "id": "dkkdasdf",
@@ -947,8 +947,8 @@ The apply_status field will have the following values:
                     ]
                 },
                 {
-                    title: "Answer for Free",
-                    data: [
+                    "title": "Answer for Free",
+                    "data": [
                         {
                             "answered_by": {
                                 "id": "testuser3_id",
@@ -958,7 +958,7 @@ The apply_status field will have the following values:
                                 "number_of_followers": 58,
                                 "number_of_following": 21,
                                 "description": "Obsesses with everything beauty, make-up",
-                                "avatar_url": "https://avatars.io/instagram/RachelWong",
+                                "avatar_url": "https://avatars.io/instagram/RachelWong"
                             },
                             
                             "asked_by": {
@@ -969,7 +969,7 @@ The apply_status field will have the following values:
                                 "number_of_followers": 58,
                                 "number_of_following": 21,
                                 "description": "Obsesses with everything beauty, make-up",
-                                "avatar_url": "https://avatars.io/instagram/XiaXue",
+                                "avatar_url": "https://avatars.io/instagram/XiaXue"
                             },
                             
                             "id": "dkkdasdf",
