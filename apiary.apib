@@ -321,18 +321,40 @@ The apply_status field will have the following values:
                         "username": "nkhdo",
                         "fullname": "Hoang Do",
                         "email": "hoangdo.dh94@gmail.com",
-                        "facebook_token": null,
-                        "instagram_token": null,
-                        "is_approved": false,
-                        "Profile": {
-                            "id": 1,
-                            "tagline": null,
-                            "description": null,
-                            "avatar_url": null,
-                            "created_at": "2017-02-23T14:47:09.233Z",
-                            "updated_at": "2017-02-23T14:47:09.233Z",
-                            "user_id": 1
-                        }
+                        "tagline": null,
+                        "description": null,
+                        "avatar_url": null,
+                    }
+                }
+            }
+
+## Facebook authentication [/auth/facebook]
+
+### Login using facebook account [POST]
+
++ Request (application/json)
+
+        {
+            "fbtoken": "token from facebook"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJua2hkbyIsImZ1bGxuYW1lIjoiSG9hbmcgRG8iLCJlbWFpbCI6ImhvYW5nZG8uZGg5NEBnbWFpbC5jb20iLCJmYWNlYm9va190b2tlbiI6bnVsbCwiaW5zdGFncmFtX3Rva2VuIjpudWxsLCJpc19hcHByb3ZlZCI6ZmFsc2UsIlByb2ZpbGUiOnsiaWQiOjEsInRhZ2xpbmUiOm51bGwsImRlc2NyaXB0aW9uIjpudWxsLCJhdmF0YXJfdXJsIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAxNy0wMi0yM1QxNDo0NzowOS4yMzNaIiwidXBkYXRlZF9hdCI6IjIwMTctMDItMjNUMTQ6NDc6MDkuMjMzWiIsInVzZXJfaWQiOjF9LCJpYXQiOjE0ODc4NjEyNjl9.UUqG_k9c4cu2BSWy_3Wehq_YvNGQMDBiydbtvWRJzpM",
+                    "user": {
+                        "id": "1",
+                        "username": "nkhdo",
+                        "fullname": "Hoang Do",
+                        "email": "hoangdo.dh94@gmail.com",
+                        "tagline": null,
+                        "description": null,
+                        "avatar_url": null,
                     }
                 }
             }
@@ -992,3 +1014,85 @@ By default, the medial should be uploaded into S3 buckets using AWS SDK
 # Group Activities
 
 # Group Payment and Transactions
+
+# Group Coins
+
+## Get current Coins [/coins]
+
+### /coins [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "coins" : 15
+                }
+            }
+
+## Redeem daily bonus [/coins/redeem_daily]
+
+### /coins/redeem_daily [POST]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "coins" : 15 //new coins value
+                }
+            }
+
+## Selling option  [/coins/packs]
+
+### /coins/packs [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": [
+                    {
+                        "pack_id": "pack125-499",
+                        "coins": 125,
+                        "price": 4.99,
+                        "tag": "Most popular"
+                    },{
+                        "pack_id": "pack520-1999",
+                        "coins": 520,
+                        "price": 19.99
+                    }
+                ]
+            }
+
+
+## Buy coins [/coins/buy]
+
+### /coins/buy [POST]
+
++ Request (application/json)
+
+        {
+            "pack_id": "pack125-499"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "coins" : 15 //new coins value
+                }
+            }
