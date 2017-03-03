@@ -710,7 +710,6 @@ The apply_status field will have the following values:
 + Request (application/json)
 
         {
-            // "asker_id": will be included in the token
             "answerer_id": "testuser_2",
             "question": "I want to know about your past.",
             "price": "3", 
@@ -725,6 +724,26 @@ The apply_status field will have the following values:
                 "error": "",
                 "error_message": "",
                 "data": ""
+            }
+
+## Add answers [/answers/{question_id}]
+
+### /answers/{question_id} [POST]
+
++ Request (application/json)
+
+        {
+            "video_url": "/path/to/video/on/s3"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": "success"
             }
 
 
