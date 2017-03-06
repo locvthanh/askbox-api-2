@@ -1053,7 +1053,129 @@ By default, the medial should be uploaded into S3 buckets using AWS SDK
 
 # Group Activities
 
-# Group Payment and Transactions
+# Group Payment (integrate with Stripe)
+
+These APIs would be used by Stripe SDK, the structure of the response 
+will be different than the general structure.
+
+## Retrieve Customer API [/customer]
+
+### /customer [GET]
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+              "id": "cus_AEqlGoOKcQHMaJ",
+              "object": "customer",
+              "account_balance": 0,
+              "created": 1488811455,
+              "currency": "sgd",
+              "default_source": null,
+              "delinquent": false,
+              "description": null,
+              "discount": null,
+              "email": null,
+              "livemode": false,
+              "metadata": {
+              },
+              "shipping": null,
+              "sources": {
+                "object": "list",
+                "data": [
+            
+                ],
+                "has_more": false,
+                "total_count": 0,
+                "url": "/v1/customers/cus_AEqlGoOKcQHMaJ/sources"
+              }
+            }
+            
+## Attach a new payment source to the Customer for the currently-logged in user [/customer/sources]
+
+https://stripe.com/docs/api#create_card
+
+### /customer/sources [POST]
+
++ Request (application/json)
+
+        {
+            "source": "pack125-499"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+              "id": "card_19nptJJFZjEDjveklNCrNHkR",
+              "object": "card",
+              "address_city": null,
+              "address_country": null,
+              "address_line1": null,
+              "address_line1_check": null,
+              "address_line2": null,
+              "address_state": null,
+              "address_zip": null,
+              "address_zip_check": null,
+              "brand": "Visa",
+              "country": "US",
+              "customer": "cus_AEqoOMt5uUek1X",
+              "cvc_check": null,
+              "dynamic_last4": null,
+              "exp_month": 8,
+              "exp_year": 2018,
+              "funding": "credit",
+              "last4": "4242",
+              "metadata": {
+              },
+              "name": null,
+              "tokenization_method": null
+            }
+
+## Select a new default payment source on the Customer for the currently logged-in user [/customer/default_source]
+
+https://stripe.com/docs/api#update_customer
+
+### /customer/default_source [POST]
+
++ Request (application/json)
+
+        {
+            "defaultSource": "pack125-499"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+              "id": "cus_AErBkSoU0UU5RN",
+              "object": "customer",
+              "account_balance": 0,
+              "created": 1488813014,
+              "currency": "sgd",
+              "default_source": null,
+              "delinquent": false,
+              "description": "Customer for sofia.martin@example.com",
+              "discount": null,
+              "email": null,
+              "livemode": false,
+              "metadata": {
+              },
+              "shipping": null,
+              "sources": {
+                "object": "list",
+                "data": [
+            
+                ],
+                "has_more": false,
+                "total_count": 0,
+                "url": "/v1/customers/cus_AErBkSoU0UU5RN/sources"
+              }
+            }
+
 
 # Group Coins
 
