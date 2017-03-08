@@ -1057,7 +1057,50 @@ By default, the medial should be uploaded into S3 buckets using AWS SDK
 
 # Group Activities
 
-# Group Payment (integrate with Stripe)
+We support the following activities: 
+* type=0: USER unlocked your question.
+* type=1: USER liked the answer to your question.
+* type=2: USER started following you.
+* type=3: USER answered your question.
+
+## Retrieve Activites API [/activities]
+
+### /activities [GET]
+
++ Response 200 (application/json)
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": [
+                    {
+                        id: "acti_id_001",
+                        type: 0,
+                        question_id: "q001",
+                        user_id: "u007"
+                    },
+                    {
+                        id: "acti_id_002",
+                        type: 1,
+                        question_id: "q001",
+                        user_id: "u007"
+                    },
+                    {
+                        id: "acti_id_003",
+                        type: 2,
+                        user_id: "u007"
+                    },
+                    {
+                        id: "acti_id_004",
+                        type: 3,
+                        question_id: "q001",
+                        user_id: "u007"
+                    }
+                ]
+            }
+
+# Group Payment 
+(integrate with Stripe)
 
 These APIs would be used by Stripe SDK, the structure of the response 
 will be different than the general structure.
