@@ -335,7 +335,8 @@ The apply_status field will have the following values:
 + Request (application/json)
 
         {
-            "fbtoken": "token from facebook"
+            "fbtoken": "token from facebook",
+            "user_existed": true
         }
 
 + Response 200 (application/json)
@@ -1077,24 +1078,40 @@ We support the following activities:
                         id: "acti_id_001",
                         type: 0,
                         question_id: "q001",
-                        user_id: "u007"
+                        user_id: "u007",
+                        description: "This user unlocked your question",
+                        avatar_url: "https://s3-ap-southeast-1.amazonaws.com/askbox.medias/avatar.png",
+                        fullname: "Tony",
+                        created_date: "01-05-2017 05:07:03",
                     },
                     {
                         id: "acti_id_002",
                         type: 1,
                         question_id: "q001",
-                        user_id: "u007"
+                        user_id: "u007",
+                        description: "This user liked your question",
+                        avatar_url: "https://s3-ap-southeast-1.amazonaws.com/askbox.medias/avatar.png",
+                        fullname: "Tony",
+                        created_date: "01-05-2017 05:07:03",
                     },
                     {
                         id: "acti_id_003",
                         type: 2,
-                        user_id: "u007"
+                        user_id: "u007",
+                        description: "This user started following your question",
+                        avatar_url: "https://s3-ap-southeast-1.amazonaws.com/askbox.medias/avatar.png",
+                        fullname: "Tony",
+                        created_date: "01-05-2017 05:07:03",
                     },
                     {
                         id: "acti_id_004",
                         type: 3,
                         question_id: "q001",
-                        user_id: "u007"
+                        user_id: "u007",
+                        description: "This user answered your question",
+                        avatar_url: "https://s3-ap-southeast-1.amazonaws.com/askbox.medias/avatar.png",
+                        fullname: "Tony",
+                        created_date: "01-05-2017 05:07:03",
                     }
                 ]
             }
