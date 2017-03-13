@@ -192,17 +192,16 @@ HTTP Code
             }
         }
 
-## Get CurrentUser [/users/me]
+## User Profile [/users/me]
 
-The apply_status field will have the following values:
-- new: This user is new to the process.
-- pending: This user applied to be able to receive questions.
-- approved: This user was approved by admin, to be able to receive questions.
+The `apply_status` field will have the following values:
+- `new`: This user is new to the process.
+- `pending`: This user applied to be able to receive questions.
+- `approved`: This user was approved by admin, to be able to receive questions.
 
 ### /users/me [GET]
 
 + Response 200 (application/json)
-
         {
             "error": "",
             "error_message": "",
@@ -215,11 +214,12 @@ The apply_status field will have the following values:
                     "number_of_following": 394,
                     "description": "Obsesses with everything beauty, make-up",
                     "avatar_url": "http://placehold.it/150x150",
+                    "email": "abc@gmail.com",
                     "apply_status": "pending"
             }
         }
 
-### Update user's profile [POST]
+### /users/me [POST]
 
 + Request (application/json)
 
@@ -237,6 +237,47 @@ The apply_status field will have the following values:
             "error_message": "",
             "data": {}
         }
+
+
+## User email [/users/me/email]
+
+### /users/me/email [GET]
+
+Get user email
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": {
+                "email": "abc@gmail.com"
+            }
+        }
+
+
+### /users/me/email [POST]
+
+Update user email.
+
++ Request (application/json)
+
+        {
+            "email": "xyz@gmail.com"
+        }
+
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": {
+                "email": "xyz@gmail.com" //return the email
+            }
+        }
+
+              
         
 ## Follow User [/follows/{user_to_follow}]
 
