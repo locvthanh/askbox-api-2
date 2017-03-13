@@ -202,6 +202,7 @@ The `apply_status` field will have the following values:
 ### /users/me [GET]
 
 + Response 200 (application/json)
+
         {
             "error": "",
             "error_message": "",
@@ -1378,5 +1379,64 @@ https://stripe.com/docs/api#update_customer
                 "error_message": "",
                 "data": {
                     "coins" : 15 //new coins value
+                }
+            }
+            
+            
+# Group Settings
+
+## Get push notification settings [/settings/push]
+
+### /settings/push [GET]
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "push_noti" : true //or false
+                }
+            }
+
+## Get email notification settings [/settings/email]
+
+### /settings/email [GET]
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "email_noti" : true //or false
+                }
+            }
+
+## Set notification settings [/settings/]
+
+### /settings [POST]
+
++ Request (application/json)
+se
+        {
+            "push_noti": true, //can ommit
+            "email_noti": false //can ommit
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "email_noti" : true,
+                    "push_noti" : true
                 }
             }
