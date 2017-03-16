@@ -389,16 +389,20 @@ Update user email.
                 "error": "",
                 "error_message": "",
                 "data": {
+                    "is_existed" = 0,
                     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJua2hkbyIsImZ1bGxuYW1lIjoiSG9hbmcgRG8iLCJlbWFpbCI6ImhvYW5nZG8uZGg5NEBnbWFpbC5jb20iLCJmYWNlYm9va190b2tlbiI6bnVsbCwiaW5zdGFncmFtX3Rva2VuIjpudWxsLCJpc19hcHByb3ZlZCI6ZmFsc2UsIlByb2ZpbGUiOnsiaWQiOjEsInRhZ2xpbmUiOm51bGwsImRlc2NyaXB0aW9uIjpudWxsLCJhdmF0YXJfdXJsIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAxNy0wMi0yM1QxNDo0NzowOS4yMzNaIiwidXBkYXRlZF9hdCI6IjIwMTctMDItMjNUMTQ6NDc6MDkuMjMzWiIsInVzZXJfaWQiOjF9LCJpYXQiOjE0ODc4NjEyNjl9.UUqG_k9c4cu2BSWy_3Wehq_YvNGQMDBiydbtvWRJzpM",
                     "user": {
-                        "id": "1",
-                        "username": "nkhdo",
-                        "fullname": "Hoang Do",
-                        "email": "hoangdo.dh94@gmail.com",
-                        "tagline": null,
-                        "description": null,
-                        "avatar_url": null,
-                    }
+                        "avatar_url": "https://scontent.xx.fbcdn.net/v/t31.0-1/c141.0.480.480/p480x480/10506738_10150004552801856_220367501106153455_o.jpg?oh=845460c6efc267648343831815cab2b3&oe=59590AFD",
+                        "description": "",
+                        "email": "wzwibdzulo_1488253007@tfbnw.net",
+                        "fullname": "Tom Alaeeccafhjec Putnamsky",
+                        "id": 1,
+                        "number_of_followers" = 0,
+                        "number_of_followings" = 0,
+                        "tagline": "",
+                        "apply_status" : "pending",
+                        "username": "nkhdo"
+                        }
                 }
             }
 
@@ -449,8 +453,8 @@ Update user email.
                     "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
                     "number_of_likes": 15,
                     "liked_by_me": false,
-                    "question_creation_date": "03-01-2017 05:07:03",
-                    "question_answered_date": "03-11-2017 05:07:03"
+                    "asked_at": "03-01-2017 05:07:03",
+                    "answered_at": "03-11-2017 05:07:03"
                     
                     
                 },
@@ -491,8 +495,8 @@ Update user email.
                     "number_of_likes": 15,
                     "liked_by_me": false,
                     
-                    "question_creation_date": "03-01-2017 05:07:03",
-                    "question_answered_date": "03-10-2017 05:07:03"
+                    "asked_at": "03-01-2017 05:07:03",
+                    "answered_at": "03-10-2017 05:07:03"
                 }
             ]
         }
@@ -544,8 +548,8 @@ Update user email.
                     "liked_by_me": false,
                     
 
-                    "question_creation_date": "03-01-2017 05:07:03",
-                    "question_answered_date": "03-11-2017 05:07:03"
+                    "asked_at": "03-01-2017 05:07:03",
+                    "answered_at": "03-11-2017 05:07:03"
                 },
                 
                 {
@@ -585,8 +589,8 @@ Update user email.
                     "liked_by_me": false,
                     
 
-                    "question_creation_date": "03-01-2017 05:07:03",
-                    "question_answered_date": "03-10-2017 05:07:03"
+                    "asked_at": "03-01-2017 05:07:03",
+                    "answered_at": "03-10-2017 05:07:03"
                 }
             ]
         }
@@ -641,8 +645,8 @@ Update user email.
                     "liked_by_me": false,
                     
 
-                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
-                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                    "asked_at": "MM-DD-yyyy HH:mm:ss",
+                    "answered_at": "MM-DD-yyyy HH:mm:ss"
                 },
                 
                 {
@@ -682,8 +686,8 @@ Update user email.
                     "liked_by_me": false,
                     
 
-                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
-                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                    "asked_at": "MM-DD-yyyy HH:mm:ss",
+                    "answered_at": "MM-DD-yyyy HH:mm:ss"
                 }
             ]
         }
@@ -738,8 +742,8 @@ Update user email.
                     "liked_by_me": false,
                     
                     
-                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
-                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                    "asked_at": "MM-DD-yyyy HH:mm:ss",
+                    "answered_at": "MM-DD-yyyy HH:mm:ss"
                 }
             ]
         }
@@ -769,14 +773,16 @@ Update user email.
                 "data": ""
             }
 
-## Add answers [/answers/{question_id}]
+## Add answers [/answers]
 
-### /answers/{question_id} [POST]
+### /answers [POST]
 
 + Request (application/json)
 
         {
-            "video_url": "/path/to/video/on/s3"
+            "question_id": 1,
+            "video_bucket": "askbox.videos.raw",
+            "video_key": "vid012.mov"
         }
 
 + Response 200 (application/json)
@@ -835,8 +841,8 @@ Update user email.
                     "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
                     "number_of_likes": 15,
                     "liked_by_me": false,
-                    "question_creation_date": "MM-DD-yyyy HH:mm:ss",
-                    "question_answered_date": "MM-DD-yyyy HH:mm:ss"
+                    "asked_at": "MM-DD-yyyy HH:mm:ss",
+                    "answered_at": "MM-DD-yyyy HH:mm:ss"
                 }
             ]
         }
@@ -961,7 +967,7 @@ Update user email.
                             "number_of_likes": 15,
                             "liked_by_me": false,
                             "price": 20,
-                            "question_creation_date": "01-05-2017 05:07:03",
+                            "asked_at": "01-05-2017 05:07:03",
                             "deadline": "04-05-2017 05:07:03"
                         }
                     ]
@@ -998,7 +1004,7 @@ Update user email.
                             "number_of_likes": 15,
                             "liked_by_me": false,
                             "price": 20,
-                            "question_creation_date": "03-05-2017 05:07:03",
+                            "asked_at": "03-05-2017 05:07:03",
                             "deadline": "04-05-2017 05:07:03"
                         }
                     ]
@@ -1049,7 +1055,7 @@ Update user email.
                             "number_of_likes": 15,
                             "liked_by_me": false,
                             "price": 20,
-                            "question_creation_date": "01-05-2017 05:07:03",
+                            "asked_at": "01-05-2017 05:07:03",
                             "deadline": "04-05-2017 05:07:03"
                         }
                     ]
@@ -1086,7 +1092,7 @@ Update user email.
                             "number_of_likes": 15,
                             "liked_by_me": false,
                             "price": 20,
-                            "question_creation_date": "03-05-2017 05:07:03",
+                            "asked_at": "03-05-2017 05:07:03",
                             "deadline": "04-05-2017 05:07:03"
                         }
                     ]
