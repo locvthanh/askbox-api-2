@@ -55,9 +55,9 @@ HTTP Code
 
 # Group Users
 
-## Featured Users [/featured_users?query={query}&offset={offset}&limit={limit}&sort={sort}]
+## Featured Users [/users/featured?query={query}&offset={offset}&limit={limit}&sort={sort}]
 
-### /featured_users [GET]
+### /users/featured [GET]
 
 + Response 200 (application/json)
 
@@ -93,9 +93,9 @@ HTTP Code
             
         }
 
-## Newcomers Users [/new_users?query={query}&offset={offset}&limit={limit}&sort={sort}]
+## Newcomers Users [/users/new?query={query}&offset={offset}&limit={limit}&sort={sort}]
 
-### /new_users [GET]
+### /users/new [GET]
 
 + Response 200 (application/json)
 
@@ -595,12 +595,9 @@ Update user email.
             ]
         }
 
-## Profile Feeds - current user's questions [/questions/{user_id}?offset={offset}&limit={limit}]
+## Profile Feeds - current user's questions [/questions/me?offset={offset}&limit={limit}]
 
-+ Parameters
-    + user_id (string) - ID of the User in the form of a string
-
-### /questions/{user_id} [GET]
+### /questions/me [GET]
 
 + Response 200 (application/json)
 
@@ -692,12 +689,9 @@ Update user email.
             ]
         }
 
-## Profile - Unlocked questions [/unlocked_questions/{user_id}?offset={offset}&limit={limit}]
+## Profile - Unlocked questions [/questions/unlocked?offset={offset}&limit={limit}]
 
-+ Parameters
-    + user_id (string) - ID of the User in the form of a string
-
-### /unlocked_questions/{user_id} [GET]
+### /question/unlocked [GET]
 
 + Response 200 (application/json)
 
@@ -887,7 +881,7 @@ Update user email.
 
 ## Unlike one question [/questions/{question_id}/unlike]
 
-### /questions/{question_id}/unlike [POST]
+### /questions/{question_id}/like [DELETE]
 
 + Request (application/json)
 
@@ -1013,9 +1007,9 @@ Update user email.
         }
 
 
-## Pending respond [/questions/me/pending_respond]
+## Pending respond [/questions/me/pending_response]
 
-### /questions/me/pending_respond [GET]
+### /questions/me/pending_response [GET]
 
 + Response 200 (application/json)
 
@@ -1428,7 +1422,7 @@ https://stripe.com/docs/api#update_customer
 ### /settings [POST]
 
 + Request (application/json)
-se
+
         {
             "push_noti": true, //can ommit
             "email_noti": false //can ommit
