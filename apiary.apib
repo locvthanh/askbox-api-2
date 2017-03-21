@@ -1330,7 +1330,23 @@ https://stripe.com/docs/api#update_customer
                 "error": "",
                 "error_message": "",
                 "data": {
-                    "coins" : 15 //new coins value
+                    "coins" : 15 //total coins value
+                }
+            }
+            
+## Check redeem daily status [/coins/redeem_status]
+
+### /coins/redeem_status [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "status" : true
                 }
             }
 
