@@ -51,6 +51,8 @@ HTTP Code
 
 * 500 – Internal Server Error – API developers should avoid this error. If an error occurs in the global catch blog, the stracktrace should be logged and not returned as response.
 
+All api datetime format (Timezone: +00:00): YYYY-MM-DDThh:mm:ssTZD (ISO 8601)
+For example: 2014-02-22T19:20:21+00:00
 
 
 # Group Users
@@ -453,8 +455,8 @@ Update user email.
                     "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
                     "number_of_likes": 15,
                     "liked_by_me": false,
-                    "asked_at": "03-01-2017 05:07:03",
-                    "answered_at": "03-11-2017 05:07:03"
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-11T16:12:27.456Z"
                     
                     
                 },
@@ -495,8 +497,8 @@ Update user email.
                     "number_of_likes": 15,
                     "liked_by_me": false,
                     
-                    "asked_at": "03-01-2017 05:07:03",
-                    "answered_at": "03-10-2017 05:07:03"
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-11T16:12:27.456Z"
                 }
             ]
         }
@@ -548,8 +550,8 @@ Update user email.
                     "liked_by_me": false,
                     
 
-                    "asked_at": "03-01-2017 05:07:03",
-                    "answered_at": "03-11-2017 05:07:03"
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-11T16:12:27.456Z"
                 },
                 
                 {
@@ -589,8 +591,8 @@ Update user email.
                     "liked_by_me": false,
                     
 
-                    "asked_at": "03-01-2017 05:07:03",
-                    "answered_at": "03-10-2017 05:07:03"
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-21T16:12:27.456Z"
                 }
             ]
         }
@@ -642,8 +644,8 @@ Update user email.
                     "liked_by_me": false,
                     
 
-                    "asked_at": "MM-DD-yyyy HH:mm:ss",
-                    "answered_at": "MM-DD-yyyy HH:mm:ss"
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-22T16:12:27.456Z"
                 },
                 
                 {
@@ -683,8 +685,8 @@ Update user email.
                     "liked_by_me": false,
                     
 
-                    "asked_at": "MM-DD-yyyy HH:mm:ss",
-                    "answered_at": "MM-DD-yyyy HH:mm:ss"
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-01T16:12:27.456Z"
                 }
             ]
         }
@@ -736,8 +738,8 @@ Update user email.
                     "liked_by_me": false,
                     
                     
-                    "asked_at": "MM-DD-yyyy HH:mm:ss",
-                    "answered_at": "MM-DD-yyyy HH:mm:ss"
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-01T16:12:27.456Z"
                 }
             ]
         }
@@ -835,8 +837,8 @@ Update user email.
                     "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
                     "number_of_likes": 15,
                     "liked_by_me": false,
-                    "asked_at": "MM-DD-yyyy HH:mm:ss",
-                    "answered_at": "MM-DD-yyyy HH:mm:ss"
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-01T16:12:27.456Z"
                 }
             ]
         }
@@ -961,8 +963,8 @@ Update user email.
                             "number_of_likes": 15,
                             "liked_by_me": false,
                             "price": 20,
-                            "asked_at": "01-05-2017 05:07:03",
-                            "deadline": "04-05-2017 05:07:03"
+                            "asked_at": "2017-05-01T16:12:27.456Z",
+                            "deadline": "2017-05-04T16:12:27.456Z"
                         }
                     ]
                 },
@@ -998,8 +1000,8 @@ Update user email.
                             "number_of_likes": 15,
                             "liked_by_me": false,
                             "price": 20,
-                            "asked_at": "03-05-2017 05:07:03",
-                            "deadline": "04-05-2017 05:07:03"
+                            "asked_at": "2017-05-01T16:12:27.456Z",
+                            "deadline": "2017-05-11T16:12:27.456Z"
                         }
                     ]
                 }
@@ -1049,8 +1051,8 @@ Update user email.
                             "number_of_likes": 15,
                             "liked_by_me": false,
                             "price": 20,
-                            "asked_at": "01-05-2017 05:07:03",
-                            "deadline": "04-05-2017 05:07:03"
+                            "asked_at": "2017-05-01T16:12:27.456Z",
+                            "deadline": "2017-05-01T16:12:27.456Z"
                         }
                     ]
                 },
@@ -1086,8 +1088,8 @@ Update user email.
                             "number_of_likes": 15,
                             "liked_by_me": false,
                             "price": 20,
-                            "asked_at": "03-05-2017 05:07:03",
-                            "deadline": "04-05-2017 05:07:03"
+                            "asked_at": "2017-05-01T16:12:27.456Z",
+                            "deadline": "2017-05-01T16:12:27.456Z"
                         }
                     ]
                 }
@@ -1126,7 +1128,7 @@ We support the following activities:
                         "avatar_url": "https://avatars.io/instagram/XiaXue",
                         "fullname": "Tony",
                         "cover_url": "",
-                        "created_date": "01-05-2017 05:07:03",
+                        "created_date": "2017-05-01T16:12:27.456Z",
                     },
                     {
                         "id": 2,
@@ -1137,7 +1139,7 @@ We support the following activities:
                         "avatar_url": "https://avatars.io/instagram/XiaXue",
                         "fullname": "Tony",
                         "cover_url": "https://dxve5j6gnlkmu.cloudfront.net/1488898739554/frame_0000.png",
-                        "created_date": "01-05-2017 05:07:03",
+                        "created_date": "2017-05-01T16:12:27.456Z",
                     },
                     {
                         "id": 3,
@@ -1148,7 +1150,7 @@ We support the following activities:
                         "avatar_url": "https://avatars.io/instagram/XiaXue",
                         "fullname": "Tony",
                         "cover_url": "",
-                        "created_date": "01-05-2017 05:07:03",
+                        "created_date": "2017-05-01T16:12:27.456Z",
                     },
                     {
                         "id": 4,
@@ -1159,7 +1161,7 @@ We support the following activities:
                         "avatar_url": "https://avatars.io/instagram/XiaXue",
                         "fullname": "Tony",
                         "cover_url": "",
-                        "created_date": "01-05-2017 05:07:03",
+                        "created_date": "2017-05-01T16:12:27.456Z",
                     },
                     {
                         "id": 5,
@@ -1170,7 +1172,7 @@ We support the following activities:
                         "avatar_url": "https://avatars.io/instagram/XiaXue",
                         "fullname": "Tony",
                         "cover_url": "",
-                        "created_date": "01-05-2017 05:07:03",
+                        "created_date": "2017-05-01T16:12:27.456Z",
                     }
                 ]
             }
