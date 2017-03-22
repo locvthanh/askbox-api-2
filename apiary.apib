@@ -1301,6 +1301,25 @@ https://stripe.com/docs/api#update_customer
               }
             }
 
+# Group Balance
+
+## Get current balance [/users/me/balance]
+
+### /users/me/balance [GET]
+A
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "cash" : 15
+                    "coins" : 15
+                }
+            }
+
 
 # Group Coins
 
