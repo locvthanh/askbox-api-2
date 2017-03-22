@@ -1331,6 +1331,27 @@ https://stripe.com/docs/api#update_customer
                 }
             }
 
+## Inform Cash out [/users/me/cashout]
+
+### /users/me/cashout [POST]
++ Request (application/json)
+
+        {
+            "email": "my_paypal_email@gmail.com"
+        }
+        
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "cash_refunded" : 15
+                }
+            }
+
 
 # Group Coins
 
