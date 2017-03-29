@@ -446,30 +446,6 @@ The `apply_status` field will have the following values:
             }
 
 
-## Forgot password [/auth/forgot]
-
-### Recover Password [PUT]
-
-+ Request (application/json)
-
-        {
-            "email": "abc@xyz.com" //registered email
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "error": "",
-            "error_message": "",
-            "data": {
-            }
-        }
-        
-    
-        
-    
-        
-
 # Group Feeds
 
 ## Home Feeds [/questions/home?offset={offset}&limit={limit}]
@@ -945,7 +921,7 @@ The `apply_status` field will have the following values:
 
 ## Unlike one question [/questions/{question_id}/unlike]
 
-### /questions/{question_id}/like [DELETE]
+### /questions/{question_id}/unlike [POST]
 
 + Request (application/json)
 
