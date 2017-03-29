@@ -445,6 +445,31 @@ The `apply_status` field will have the following values:
                 }
             }
 
+
+## Forgot password [/auth/forgot]
+
+### Recover Password [PUT]
+
++ Request (application/json)
+
+        {
+            "email": "abc@xyz.com" //registered email
+        }
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": {
+            }
+        }
+        
+    
+        
+    
+        
+
 # Group Feeds
 
 ## Home Feeds [/questions/home?offset={offset}&limit={limit}]
