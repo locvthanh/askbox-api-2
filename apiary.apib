@@ -650,7 +650,103 @@ The `apply_status` field will have the following values:
 
 ## Profile Feeds - current user's questions [/questions/me?offset={offset}&limit={limit}]
 
+REMOVED, PLEASE USE THE API BELOW
+
 ### /questions/me [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "answered_by": {
+                        "id": 111111111,
+                        "username": "Rchlwngx",
+                        "fullname": "Rachel Wong",
+                        "tagline": "Beauty Blogger, Make-up expert.",
+                        "number_of_followers": 268,
+                        "number_of_following": 394,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/RachelWong",
+                    },
+                    
+                    "asked_by": {
+                        "id": 111111112,
+                        "username": "Xx",
+                        "fullname": "Xia Xue",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 18,
+                        "number_of_following": 24,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "video": {
+                        "id": 1,
+                        "cover_url": "https://dxve5j6gnlkmu.cloudfront.net/1488898739554/frame_0000.png",
+                        "video_url": "https://dxve5j6gnlkmu.cloudfront.net/1488898739554/IMG_0629.mp4",
+                        "unlocked_by_user": false,
+                        "length": 54
+                    },
+                    
+                    "id": 1,
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    
+
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-22T16:12:27.456Z"
+                },
+                
+                {
+                    "answered_by": {
+                        "id": 1111111111,
+                        "username": "NRLKheng",
+                        "fullname": "Narelle Kheng",
+                        "tagline": "Beauty Expert, Freedom Advocate, Blogger.",
+                        "number_of_followers": 12,
+                        "number_of_following": 34,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/NarelleKheng",
+                    },
+                    
+                    "asked_by": {
+                        "id": 1111111112,
+                        "username": "MeltansyB",
+                        "fullname": "Melania Tan",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "https://avatars.io/instagram/XiaXue",
+                    },
+                    
+                    "video": {
+                        "id": 2,
+                        "cover_url": "https://dxve5j6gnlkmu.cloudfront.net/1488898739554/frame_0000.png",
+                        "video_url": "https://dxve5j6gnlkmu.cloudfront.net/1488898739554/IMG_0629.mp4",
+                        "unlocked_by_user": false,
+                        "length": 54
+                    },
+                    
+                    "id": 2,
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    
+
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-01T16:12:27.456Z"
+                }
+            ]
+        }
+
+## Profile - all questions and answers for one user [/users/:user_id/questions?offset={offset}&limit={limit}]
+
+### /users/:user_id/questions [GET]
 
 + Response 200 (application/json)
 
@@ -744,6 +840,8 @@ The `apply_status` field will have the following values:
 
 ## Profile - Unlocked questions [/questions/unlocked?offset={offset}&limit={limit}]
 
+REMOVED, PLEASE USE THE API BELOW
+
 ### /question/unlocked [GET]
 
 + Response 200 (application/json)
@@ -794,6 +892,60 @@ The `apply_status` field will have the following values:
                 }
             ]
         }
+        
+## Profile - Unlocked questions for one user [/users/:user_id/questions_unlocked?offset={offset}&limit={limit}]
+
+### /users/:user_id/questions_unlocked [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "answered_by": {
+                        "id": 11111111111,
+                        "username": "Rchlwngx",
+                        "fullname": "Rachel Wong",
+                        "tagline": "Beauty Blogger, Make-up expert.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "http://placehold.it/150x150"
+                    },
+                    
+                    "asked_by": {
+                        "id": 11111111112,
+                        "username": "Xx",
+                        "fullname": "Xia Xue",
+                        "tagline": "I am unique, the only unique on in the world.",
+                        "number_of_followers": 58,
+                        "number_of_following": 21,
+                        "description": "Obsesses with everything beauty, make-up",
+                        "avatar_url": "http://placehold.it/150x150"
+                    },
+                    
+                    "video": {
+                        "id": 1,
+                        "cover_url": "https://dxve5j6gnlkmu.cloudfront.net/1488898739554/frame_0000.png",
+                        "length": 54,
+                        "video_url": "https://dxve5j6gnlkmu.cloudfront.net/1488898739554/IMG_0629.mp4",
+                        "unlocked_by_user": false
+                    },
+                    
+                    "id": 3,
+                    "question": "Hey Rachel, is there any downsides to being a celebrity in Singapore?",
+                    "number_of_likes": 15,
+                    "liked_by_me": false,
+                    
+                    
+                    "asked_at": "2017-03-01T16:12:27.456Z",
+                    "answered_at": "2017-03-01T16:12:27.456Z"
+                }
+            ]
+        }
+        
         
 # Group Questions
 
