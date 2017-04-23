@@ -459,6 +459,26 @@ The `apply_status` field will have the following values:
                 }
             }
 
+## Register device  [/users/:user_id/register_device]
+
+### Register device id so that one signal can send push notifications [POST]
+
++ Request (application/json)
+
+        {
+            "one_signal_playerid": "xxaadd"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                }
+            }
 
 # Group Feeds
 
@@ -1112,6 +1132,26 @@ REMOVED, PLEASE USE THE API BELOW
 
         {
             "message": "Reason to ignore this question"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": "success"
+            }
+
+## Report one question [/questions/{question_id}/report]
+
+### /questions/{question_id}/report [POST]
+
++ Request (application/json)
+
+        {
+            "message": "Reason to report this question"
         }
 
 + Response 200 (application/json)
