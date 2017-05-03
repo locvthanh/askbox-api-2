@@ -57,6 +57,44 @@ For example: 2014-02-22T19:20:21+00:00
 
 # Group Users
 
+## Search Users [/users/search?query={query}&offset={offset}&limit={limit}&sort={sort}]
+
+### /users/search [GET]
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": [
+                {
+                    "id": 1,
+                    "tagline": "testuser",
+                    "fullname": "Test User",
+                    "number_of_followers": 3,
+                    "avatar_url": "https://s3-ap-southeast-1.amazonaws.com/askbox.medias/avatar.png",
+                    "is_following": false
+                },
+                {
+                    "id": 2,
+                    "tagline": "testuser2",
+                    "fullname": "Test User 2",
+                    "number_of_followers": 3,
+                    "avatar_url": "https://s3-ap-southeast-1.amazonaws.com/askbox.medias/avatar.png",
+                    "is_following": false
+                },
+                {
+                    "id": 3,
+                    "tagline": "testuser3",
+                    "fullname": "Test User 3",
+                    "number_of_followers": 3,
+                    "avatar_url": "https://s3-ap-southeast-1.amazonaws.com/askbox.medias/avatar.png",
+                    "is_following": false
+                }
+            ]
+            
+        }
+
 ## Featured Users [/users/featured?query={query}&offset={offset}&limit={limit}&sort={sort}]
 
 ### /users/featured [GET]
@@ -1109,7 +1147,7 @@ REMOVED, PLEASE USE THE API BELOW
 
 ## Share one question [/questions/{question_id}/share]
 
-### /questions/{question_id}/share [POST]
+### /questions/{question_id}/share [GET]
 
 + Request (application/json)
 
@@ -1128,7 +1166,7 @@ REMOVED, PLEASE USE THE API BELOW
 
 ## View one question [/questions/{question_id}/watch]
 
-### /questions/{question_id}/watch [POST]
+### /questions/{question_id}/watch [GET]
 
 + Request (application/json)
 
