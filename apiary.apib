@@ -1715,6 +1715,39 @@ https://stripe.com/docs/api#update_customer
                     "coins" : 15 //total coins value
                 }
             }
+   
+## Redeem daily unlocks [/redeem_daily_unlocks]
+
+### /redeem_daily_unlocks [POST]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "unlocks" : 15 //total coins value
+                }
+            }
+            
+## Check redeem daily unlock status [/redeem_unlock_status]
+
+### /redeem_unlock_status [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": {
+                    "status" : true
+                }
+            }
+  
             
 ## Check redeem daily status [/coins/redeem_status]
 
