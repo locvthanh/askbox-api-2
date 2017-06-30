@@ -536,6 +536,50 @@ Notes: User must login to call this api
                 }
             }
 
+## Set minimum price for user question [/users/{user_id}/min_price]
+
+Price is in Dollar.
+
+### /users/{user_id}/min_price [POST]
+
++ Request (application/json)
+
+        {
+            "price": "25" 
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": "success"
+            }
+            
+## Get available coins options [/users/{user_id}/available_coins_option]
+
+The first value of the array is the minimum price.
+If the minimum price is 0, it's equivalent to Free.
+
+### /users/{user_id}/available_coins_option [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": "",
+                "error_message": "",
+                "data": [
+                    0,
+                    125,
+                    250,
+                    1000
+                ]
+            }
+
 # Group Feeds
 
 ## Home Feeds [/questions/home?offset={offset}&limit={limit}]
@@ -1036,6 +1080,7 @@ REMOVED, PLEASE USE THE API BELOW
             "answerer_id": "testuser_2",
             "question": "I want to know about your past.",
             "price": "3", 
+            "coins": "25"
             "is_anonymous": true
         }
 
@@ -1048,6 +1093,7 @@ REMOVED, PLEASE USE THE API BELOW
                 "error_message": "",
                 "data": ""
             }
+            
 
 ## Add answers [/answers]
 
@@ -1434,6 +1480,8 @@ REMOVED, PLEASE USE THE API BELOW
                 }
             ]
         }
+
+
 
 # Group Media
 
