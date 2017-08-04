@@ -1783,6 +1783,11 @@ https://stripe.com/docs/api#update_customer
 
 ### /unlocks/redeem_status [GET]
 
+* status: means whether user did redeem today or not
+* next_unlock: 
+  - 1 or 2 means the next possible unlocks
+  - 0 means user cannot redeem unlock anymore as they exceeded the limitation.
+
 + Response 200 (application/json)
 
     + Body
@@ -1791,7 +1796,8 @@ https://stripe.com/docs/api#update_customer
                 "error": "",
                 "error_message": "",
                 "data": {
-                    "status" : true
+                    "status" : true, 
+                    "next_unlock": 1
                 }
             }
 
