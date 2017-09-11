@@ -348,6 +348,30 @@ Update user email.
             }
         }
 
+## User avatar [/users/me/avatar_url]
+
+### /users/me/avatar_url [POST]
+
+Update user avatar_url.
+
++ Request (application/json)
+
+        {
+            "avatar_url": "http://xxaa.xyz.com"
+        }
+
+
++ Response 200 (application/json)
+
+        {
+            "error": "",
+            "error_message": "",
+            "data": {
+                "avatar_url":  "http://xxaa.xyz.com"
+            }
+        }
+
+
 ## User Approval [/users/apply]
 
 The `apply_status` field will have the following values:
